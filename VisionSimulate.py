@@ -9,7 +9,7 @@ def adjust_gamma(image: Image.Image, gamma=1.0) -> Image.Image:
     """Ajusta a correção gama da imagem."""
     invGamma = 1.0 / gamma
     table = [((i / 255.0) ** invGamma) * 255 for i in range(256)]
-    return image.point(table * image.layers)
+    return image.point(table * len(image.getbands()))
 
 def simulate_deuteranopia(image: Image.Image) -> Image.Image:
     """Simula deuteranopia (forma de daltonismo)."""
