@@ -7,13 +7,13 @@ def simulate_blurred_vision(image: Image.Image) -> Image.Image:
 
 def simulate_deuteranopia(image: Image.Image) -> Image.Image:
     """Simula deuteranopia (forma de daltonismo)."""
+    image = image.convert("L")  # Convertendo a imagem para escala de cinza
     data = [
         0.625, 0.375, 0.0, 0.0,
         0.7, 0.3, 0.0, 0.0,
         0.0, 0.3, 0.7, 0.0
     ]
-    image = image.convert("RGB")
-    return ImageOps.colorize(image, "RGB", data)
+    return ImageOps.colorize(image, "black", "white", data)
 
 st.title("Simulador de Visão")
 
