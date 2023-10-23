@@ -31,7 +31,7 @@ if uploaded_file:
     image = Image.open(uploaded_file)
     st.image(image, caption='Imagem original.', use_column_width=True)
 
-    option = st.selectbox(
+    option = st.radio(
         'Escolha a simulação',
         ('Original', 'Visão Embaçada', 'Deuteranopia (daltonismo)')
     )
